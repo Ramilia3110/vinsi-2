@@ -1,0 +1,167 @@
+@import "../../scss/vars";
+@import "../../scss/mixin";
+
+.navbar {
+  padding: 10px 30px;
+  margin: 0 auto;
+  height: 8vh;
+  width: 80%;
+  max-width: 1200px;
+  background-color: map-get($colors, "secondary");
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  color: map-get($colors, "primary");
+  position: relative;
+  z-index: 10;
+
+  @include Tablet {
+    width: 90%;
+  }
+
+  @include MobileL {
+    width: 95%;
+    flex-direction: row;
+    height: auto;
+    padding: 10px 20px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-right: auto;
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: map-get($colors, "primary");
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 100;
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @include MobileL {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+  }
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+
+  li a {
+    text-decoration: none;
+    color: map-get($colors, "primary");
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: lighten(map-get($colors, "primary"), 10%);
+    }
+  }
+
+  @include MobileL {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: map-get($colors, "secondary");
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 20;
+  }
+}
+
+.showMenu {
+  left: 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  @include MobileL {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 20px;
+  }
+}
+
+.showButtons {
+  display: flex; /* Show when menu is open */
+}
+
+.search {
+  background-color: transparent;
+  border: none;
+  color: #1b2a5c;
+  font-weight: 700;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: darken(#1b2a5c, 10%);
+  }
+}
+
+.get,
+.login {
+  border: none;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  transition: all 0.3s ease-in-out;
+
+  @include MobileL {
+    width: 100%;
+    padding: 0.8rem;
+    text-align: center;
+  }
+}
+
+.login {
+  color: map-get($colors, "primary");
+  background-color: transparent;
+  border: 1px solid rgba(map-get($colors, "primary"), 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.get {
+  background-color: map-get($colors, "primary");
+  color: map-get($colors, "secondary");
+
+  &:hover {
+    background-color: rgb(54, 59, 195);
+  }
+}

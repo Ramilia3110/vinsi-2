@@ -1,0 +1,42 @@
+@mixin defaultCard {
+  padding: 20px;
+  marginbottom: 20px;
+  box-shadow: 5px 5px 5px -5px #000;
+}
+
+@mixin flexContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@mixin oldMonitor {
+  @media screen and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin Tablet {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin MobileL {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin MobileLM {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin MobileS {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
